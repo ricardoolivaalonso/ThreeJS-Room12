@@ -5,6 +5,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 
+const loading = document.querySelector('#loader')
 const canvas = document.querySelector('canvas.webgl')
 const scene = new THREE.Scene()
 const textureLoader = new THREE.TextureLoader()
@@ -100,6 +101,7 @@ gltfLoader.load(
             child.material.roughness = 0
         })
         scene.add(gltf.scene)
+        loading.style.display = 'none'
     }
 )
 
