@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <canvas class="webgl"></canvas>
+
+    
+    <script type="x-shader/x-vertex" id="vertexshaderCube">
+        void main() {
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+    </script>
+
+    <script type="x-shader/x-fragment" id="fragmentshaderCube">
+        uniform vec3 colors[3];
+        uniform float time;
+       
+        void main() {
+            int index = int(mod(time, 3.0));
+            vec3 color = colors[index];
+            gl_FragColor = vec4(color, 1.0);
+        }
+    </script>
+</body>
+</html>
